@@ -28,6 +28,9 @@
         <activity
             android:name=".ui.SegmentTabActivity"
             android:screenOrientation="portrait"/>
+ <activity
+            android:name=".ui.TabPagerActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

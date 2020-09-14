@@ -14,9 +14,9 @@ import com.flyco.tablayoutsamples.adapter.SimpleHomeAdapter;
 
 public class SimpleHomeActivity extends AppCompatActivity {
     private Context mContext = this;
-    private final String[] mItems = {"SlidingTabLayout", "CommonTabLayout", "SegmentTabLayout"};
+    private final String[] mItems = {"SlidingTabLayout", "CommonTabLayout", "SegmentTabLayout","TabPagerLayout"};
     private final Class<?>[] mClasses = {SlidingTabActivity.class, CommonTabActivity.class,
-            SegmentTabActivity.class};
+            SegmentTabActivity.class,TabPagerActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,9 @@ public class SimpleHomeActivity extends AppCompatActivity {
         lv.setFadingEdgeLength(0);
         lv.setAdapter(new SimpleHomeAdapter(mContext, mItems));
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(mContext, mClasses[position]);
-                startActivity(intent);
-            }
+        lv.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(mContext, mClasses[position]);
+            startActivity(intent);
         });
 
         setContentView(lv);

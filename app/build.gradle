@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
@@ -30,8 +31,14 @@ dependencies {
 //    compile project(':FlycoTabLayout_Lib')
 
     //--->support 3.0+
-    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation project(path: ':FlycoTabLayout_Lib')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.1'
     //--->support 2.2+
 //    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.0@aar'
 //    compile 'com.nineoldandroids:library:2.4.0'
+}
+repositories {
+    mavenCentral()
 }
